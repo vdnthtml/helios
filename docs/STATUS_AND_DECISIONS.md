@@ -50,7 +50,7 @@ Append rather than silently rewrite. Include date, status, decision, alternative
 
 Supersedes the earlier documentation-only status for this feature branch. The founder requested a concrete architecture/model strategy, quick project creation, and daily useful features/changes.
 
-- **Implemented locally:** dependency-free evidence/identity contracts and SQLite reference ledger (`helios/evidence.py`), with 16 passing synthetic-fixture tests (`tests/test_evidence.py`). Test command: `python3 -m unittest discover -s tests -v`.
+- **Implemented locally:** dependency-free evidence/identity contracts and SQLite reference ledger (`helios/evidence.py`), with 18 passing synthetic-fixture tests (`tests/test_evidence.py`). Test command: `python3 -m unittest discover -s tests -v`.
 - **Added:** detailed architecture/model/fine-tuning proposal, ten-day slice plan, quickstart, and CI configuration. Primary-source checks and source-scaffold bugs are documented in `BUILD_PLAN.md`.
 - **Engineering proposal:** Postgres canonical adapter, Pydantic/FastAPI, pgvector, bounded graph projections, PydanticAI/DBOS, and task-specific model routing. These integrations are not implemented in the current slice.
 - **Local constraint:** installation of model/API dependencies failed because this execution environment could not resolve PyPI. The runnable core uses the Python standard library.

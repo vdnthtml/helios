@@ -76,7 +76,7 @@ No license has been selected. Do not assume reuse or redistribution rights until
 
 ## First evidence-contract feature
 
-A dependency-free reference ledger and 16 contract tests now exercise identity,
+A dependency-free reference ledger and 18 contract tests now exercise identity,
 provenance, correction history, scope filters, and actual-ingestion time cutoffs.
 This is a development slice, not the full product or a production service.
 

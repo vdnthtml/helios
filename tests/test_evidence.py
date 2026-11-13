@@ -114,6 +114,17 @@ class EvidenceTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             self.assertion(object_value="duplicate")
 
+    def test_empty_object_id_rejected(self):
+        with self.assertRaises(ValueError):
+            self.ledger.assert_relation("a", self.obs.id, self.a.id, "acquires", self.obs.content,
+                                        object_id="")
+
+    def test_correction_cannot_silently_change_subject(self):
+        old = self.assertion()
+        with self.assertRaises(ValueError):
+            self.ledger.assert_relation("a", self.obs.id, self.b.id, "acquires", self.obs.content,
+                                        object_id=self.a.id, supersedes_id=old.id)
+
     def test_scope_filter_returns_no_other_tenant_records(self):
         self.assertion()
         self.assertEqual([], self.ledger.assertions("b", as_of=T0))

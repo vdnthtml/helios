@@ -172,11 +172,13 @@ class Ledger:
                         valid_from: datetime | None = None, valid_to: datetime | None = None,
                         supersedes_id: str | None = None,
                         extractor_version: str = "manual-v1") -> Assertion:
-        required(tenant, predicate, evidence_quote, extractor_version)
+        required(tenant, observation_id, subject_id, predicate, evidence_quote, extractor_version)
         if (object_id is None) == (object_value is None):
             raise ValueError("provide exactly one object entity or value")
         if object_value is not None:
             required(object_value)
+        if object_id is not None:
+            required(object_id)
         if modality not in {"reported", "intended", "possible", "denied"}:
             raise ValueError("invalid assertion modality")
         if event_status not in {"unspecified", "proposed", "announced", "committed", "completed", "cancelled"}:
