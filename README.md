@@ -73,3 +73,16 @@ See the [phased roadmap](docs/ROADMAP.md) and the [agent/engineer handoff](docs/
 ## License
 
 No license has been selected. Do not assume reuse or redistribution rights until one is added by the project owner.
+
+## First evidence-contract feature
+
+A dependency-free reference ledger and 16 contract tests now exercise identity,
+provenance, correction history, scope filters, and actual-ingestion time cutoffs.
+This is a development slice, not the full product or a production service.
+
+- [Fast architecture/model build plan](docs/BUILD_PLAN.md)
+- [Run the evidence feature](docs/EVIDENCE_QUICKSTART.md)
+
+```sh
+python -m unittest discover -s tests -v
+```

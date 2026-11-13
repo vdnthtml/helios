@@ -38,3 +38,9 @@ Use primary documentation, repository code, licenses, reproducible tests, and ci
 ## Definition of honest progress
 
 Call something implemented only when a reviewer can find its code, contracts, tests, and actual verification results. Otherwise label it as direction, requirement, proposal, research, or open question.
+
+## Current feature continuation — 2026-11-14
+
+Read `BUILD_PLAN.md` and `EVIDENCE_QUICKSTART.md`. The first dependency-free evidence-contract slice is implemented and has 16 local passing tests. Next implement the Postgres adapter and Pydantic API boundary, run the same contract cases on actual Postgres, then connect one permitted real source. Do not rewrite stable IDs into hashes of names or infer identity from aliases alone. Do not call the reference ledger a production authorization system.
+
+The code lives on `feat/evidence-foundation`, separate from main. Package installation and GitHub access may be environment-blocked; verify those before promising model integration or remote shipping. Prefer a feature PR over interfering with another agent's main-branch push.
