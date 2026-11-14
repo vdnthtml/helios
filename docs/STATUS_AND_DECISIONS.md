@@ -56,3 +56,9 @@ Supersedes the earlier documentation-only status for this feature branch. The fo
 - **Local constraint:** installation of model/API dependencies failed because this execution environment could not resolve PyPI. The runnable core uses the Python standard library.
 - **Remote status at feature creation:** GitHub CLI authentication absent. Push success must be verified separately; a local commit is not a remote deployment.
 - **Still open:** initial buyer/corpus, source rights, benchmark thresholds, model economics, secure multi-user deployment, and training data sufficiency.
+## 14 Nov 2026 — Helios v3 APPROVED as architectural baseline (conditional approval)
+
+- Helios v3 is APPROVED as the architectural baseline. Three final clarifications are incorporated: two-dimensional historical queries `as_of(valid_at, known_at)` (see docs/REASONING_ARCHITECTURE.md), separate release gates, and the parallel-track plan (see docs/BUILD_PLAN.md). Stop broad redesign.
+- The October 2026 documentation-only status in "Current status" above remains superseded — first by the 14 Nov 2026 start-implementation entry, and now by this v3 approval. It is retained here for history and is not deleted.
+- Still-open implementation prerequisites: bounded source universe frozen around the first customer problem (20–50 people / 10–20 companies / 30 days is a starting envelope only; the gold set needs named sources, explicit inclusion rules, and a named owner); gold-set owner to be named in Commit 0; dependency pins verified; baseline evaluation setup.
+- What is actually implemented (14 Nov 2026): SQLite evidence/identity ledger only, 18 contract tests, 0 inference tests, no gold set, no Postgres, pyproject dependencies empty.
