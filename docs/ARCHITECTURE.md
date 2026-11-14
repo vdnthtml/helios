@@ -1,6 +1,8 @@
-# Helios v0 architecture
+# Helios architecture - canonical index and entry point
 
 **Status:** architecture and research baseline, not an implementation specification with settled technology choices.
+
+Helios Core is the infrastructure, and Helios Signal is the first application built on it. Research and historical documents are labelled historical and do not override current architecture. This document is the canonical overall index and entry point for Helios architecture. For inference, docs/REASONING_ARCHITECTURE.md is the authoritative inference-specific specification.
 
 ## Mission and boundary
 
@@ -94,3 +96,30 @@ The following is a starting hypothesis for a small prototype, not a selected sta
 | Models | provider-agnostic interfaces | supports controlled comparisons | chosen providers/models and data policy |
 
 The prototype must validate its contracts before any large-scale distributed system, autonomous agent fleet, or model fine-tuning program.
+## Document index — Helios v3 (14 Nov 2026)
+
+Start here. This document is the canonical overall index and entry point for Helios architecture. Helios v3 was approved as the architectural baseline on 14 Nov 2026 (conditional approval; see docs/STATUS_AND_DECISIONS.md). Broad redesign is stopped; work proceeds under the v3 baseline and the parallel-track plan in docs/BUILD_PLAN.md.
+
+| Document | Role | Status |
+| --- | --- | --- |
+| docs/ARCHITECTURE.md | Canonical overall index and entry point (this document) | Canonical |
+| docs/REASONING_ARCHITECTURE.md | Authoritative inference-specific specification | Canonical |
+| docs/BUILD_PLAN.md | Parallel-track build plan, release gates, evaluation, regression and deletion/revocation policy | Canonical |
+| docs/STATUS_AND_DECISIONS.md | Status and decisions, including the 14 Nov 2026 Helios v3 approval | Canonical |
+| docs/world-model-context/DECISIONS.md | Decision and technology registry; proposed technologies are CANDIDATES until verified | Canonical |
+| docs/ROADMAP.md | Roadmap (supporting document) | Supporting |
+| docs/HANDOFF.md | Handoff notes (supporting document) | Supporting |
+| docs/EVIDENCE_QUICKSTART.md | Evidence quickstart (supporting document) | Supporting |
+| docs/CONTRIBUTING.md | Contribution guide (supporting document) | Supporting |
+| docs/world-model-context/ | Historical research context and audits; labelled historical | Historical |
+| docs/research-uploads/ | Research uploads; labelled historical | Historical |
+
+Research and historical documents are labelled historical and do not override current architecture.
+
+### What is actually implemented (14 Nov 2026)
+
+Status language used in this document set: Planned / In progress / Implemented / Verified.
+
+- Implemented: the SQLite evidence/identity ledger, with 18 contract tests. No inference tests exist yet.
+- Planned: everything else described here, including ingestion, ranking, briefing, Deep Hypothesis, and the release gates in docs/BUILD_PLAN.md.
+- Not implemented: no gold set, no Postgres, no pgvector deployment. Proposed technologies (for example GLiNER2.5, Qwen3-8B, bge-m3, pgvector) are CANDIDATES until verified — see docs/world-model-context/DECISIONS.md. The project's pyproject dependencies are empty.
