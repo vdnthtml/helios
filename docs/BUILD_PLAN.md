@@ -2,6 +2,8 @@
 
 Date: 2026-11-14. Status: engineering proposal plus a tested first evidence-contract feature. This advances the founder's current request to start creating the project; the former research-only sequencing is no longer a reason to defer reversible implementation.
 
+Helios v3, 14 Nov 2026: the sequential plan in sections 1 to 10 below is superseded by the parallel-track plan in the final section of this document.
+
 ## 1. The first useful product loop
 
 Select a bounded public AI-infrastructure ecosystem as a proposed test, initially around 10–20 organizations plus relevant people, publications, transactions, and suppliers. Start with permitted official documents and user-supplied authorized text. The exact seed list remains adjustable to buyer relevance and data availability.
@@ -143,3 +145,16 @@ Checked by retrieval on 2026-11-14; docs/model cards, not local performance benc
 - Graph comparison candidate: https://github.com/getzep/graphiti
 
 These checks do not adopt all maintenance claims, security advisories, API quotas, pricing, legal interpretations, or novelty assertions in Muse's package. Those remain independently verifiable claims.
+## Helios v3 plan — parallel tracks (14 Nov 2026)
+
+Status: Planned. This section supersedes the sequential plan in sections 1–10 above. Helios v3 was approved as the architectural baseline on 14 Nov 2026 (conditional approval; see docs/STATUS_AND_DECISIONS.md). Broad redesign is stopped.
+
+- Commit 0: scope, gold-set owner to be named, verified dependency pins. Bounded source universe frozen around the first customer problem; 20–50 people / 10–20 companies / 30 days is a starting envelope only. Gold set needs named sources, explicit inclusion rules, and a named owner.
+- Commit 1: immutable evidence + temporal foundation (two-dimensional `as_of(valid_at, known_at)` queries; see docs/REASONING_ARCHITECTURE.md).
+- Track A — Deep Hypothesis (hypothesis, attribution, process tracing) and Track B — Signal (ingestion, ranking, briefing, action authorisation) run in parallel, then integrate on the shared Core Foundation.
+- Release gates (separately releasable): Helios Core Foundation (evidence, temporal, provenance, identity, rights, isolation); Helios Signal v0.1 (Core + ingestion, ranking, relevance, briefing, action authorisation, product tests) — does not wait for Deep Inference; Helios Deep Inference (Core + hypothesis, attribution, process tracing, independent inference evaluation).
+- Evaluation: nDCG +0.03 absolute is for retrieval/ranking promotion only. Deep inference is evaluated separately on evidence faithfulness, competing explanations, unsupported causal detection, source attribution + temporal correctness, and human-blinded explanatory quality.
+- Regression policy: 10% tolerance for drops >0.10, mandatory review for drops >0.20, zero critical evidence/security regressions. Maintenance releases need non-regression + safety only, not +0.03.
+- Deletion/revocation: retain event history only where permitted, purge restricted payloads, use audit tombstones, invalidate derived data.
+- Hoop tests: a failed hoop test triggers a documented reassessment, not automatic withdrawal.
+- What is actually implemented (14 Nov 2026): SQLite evidence/identity ledger only, 18 contract tests, 0 inference tests, no gold set, no Postgres, pyproject dependencies empty. Proposed technologies are CANDIDATES until verified.
