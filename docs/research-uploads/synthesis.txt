@@ -1,0 +1,101 @@
+Audit is done. Six specialists, verified live 13–14 Nov. Full per-layer files are attached at the bottom — this is the synthesis, with the load-bearing fixes first.
+
+Overall verdict: ChatGPT's spine is sound — Postgres + pgvector, modular monolith, staged extraction, frozen rules baseline. It's wrong or stale in about 10 load-bearing places. None kills the architecture, all need fixing before v0.1 ships.
+
+What to replace, keep, or build
+
+Storage / temporal / graph
+
+Postgres 18 — KEEP. 18.0, 25 Sep 2025. Pin 18.x, uuidv7() PKs, always timestamptz.
+pgvector 0.8.7 — KEEP. ~23.5k★, 1 Oct 2026. Use halfvec + HNSW + hnsw.iterative_scan=relaxed_order — without it, filtered queries silently under-return. Upgrade immediately if ≤0.8.6, CVE-2026-103484.
+Bitemporal — IMPROVE, highest-risk gap here. 4 timestamps without enforcement is a claim, not a guarantee. Postgres has no native SQL:2011 system-versioning. Add tstzrange + GiST exclusion + append-only (close old row, insert corrected) + as_of(valid, txn) + leakage test (recorded_at <= decision_ts). infinity for open ranges, not bare NULL.
+Typed edges in Postgres — KEEP at v0.1. Freeze the edge contract, 2-hop CTE benchmark as promotion gate (>100ms at 100k edges = re-evaluate).
+Kuzu — AVOID, dead. Archived 10 Oct 2025, Apple acquisition. Remove from all docs. LadybugDB (~1.4k★, MIT) is the only live permissive embedded graph DB — watch, don't adopt yet.
+Neo4j CE (GPLv3), FalkorDB (SSPL), Memgraph/Arango/Surreal (BSL) — AVOID. Licence, not speed, is the blocker.
+MinIO Community — REPLACE, dead. Repo archived 25 Apr 2026, Docker images deleted 11 Sep 2026, CVE fixed only in proprietary AIStor. Default is now SeaweedFS — Apache-2.0, ~35k★, v4.53, 8 Nov 2026, weed mini on one VPS. RustFS is a spike, not a default. Garage is AGPL, only if geo-distributed.
+XTDB 2.x — BUILD gated prototype, NOT canonical. ~2.9k★, 2.0.0 GA 11 Jun 2025. Adopt only if >10× faster on as-of-as-was and JVM sidecar is acceptable.
+NetworkX — KEEP for analysis, offline only. Add rustworkx as the fast path — this kills the “NetworkX too slow → need a graph DB” argument. igraph is GPL, avoid in shipped code.
+
+Extraction / entity resolution
+
+GLiNER v1 — demote to fallback. Weights are CC-BY-NC-4.0. Promote GLiNER2.5 to Tier-2 default — Apache-2.0, 74/194/287M, boundary prediction, max_len 4096. Use AutoExtractor, span-only loader won't load 2.5 checkpoints.
+Qwen2.5 — REPLACE. 3B is Qwen Research Licence, non-commercial. Lock Qwen3-8B-Instruct — Apache-2.0, ~27.7k★, + JSON-schema constrained decoding. 4B for CPU.
+spaCy — KEEP, Tier-0. MIT, ~34k★, v3.8. Tokenisation + EntityRuler gazetteer, cheap tier not ground truth.
+LangExtract — ADD, Tier-3 harness. Google, Apache-2.0, ~39.3k★, v1.7.2, 7 Nov 2026. Char-level grounding — this is the evidence-validation mechanism ChatGPT described but never named. Char offsets or it does not ship.
+NuExtract — benchmark as challenger. v2.0-8B MIT, v2.0-4B research licence, NuExtract3 4B Apache-2.0. Test vs Qwen3-8B on your gold set at temperature=0, don't adopt on vendor F1.
+Splink 4 — KEEP, ER core. MIT, DuckDB, Fellegi–Sunter + EM. Deterministic blocking first, Splink second, LLM adjudication 0.60–0.90, auto-merge ≥0.90 never on name alone, merges reversible.
+recordlinkage — REPLACE. Unmaintained since Feb 2024. dedupe (~4.5k★, MIT) as optional second backend — label 30–50 pairs to bootstrap Splink.
+Zingg — REPLACE, AGPL. Tigramite — PARK, GPLv3. ReLiK — PARK, no licence file. pyDecision — PARK, NOASSERTION. EconML — gate on licence, BSD vs MIT vs NOASSERTION conflict unresolved.
+Nemo — KEEP behind Postgres-first gate. Apache-2.0/MIT, Rust Datalog. Start Postgres rules, promote only when a rule needs existential rules/negation. Soufflé — park, C++ toolchain, no Python API.
+LinkML — KEEP, schema source of truth. One YAML → Pydantic v2 + JSON Schema + SQL DDL. Never skip single-source-of-truth.
+DoWhy — KEEP, research gate only. Never surface an estimate as a signal without refutation passing.
+
+Retrieval / ranking / clustering / learning
+
+bge-large-en-v1.5 — REPLACE, legacy. 512 ctx, English-only. Default is bge-m3 — MIT, 568M, 1024d, 8K ctx, 100+ langs, dense+sparse+multi-vector, ~35.6M downloads/mo. One model, three retrieval legs. Via FastEmbed (CPU, no Torch).
+Cohere Rerank as default — REPLACE. Paid, uncalibrated, no offline path. Default is bge-reranker-v2-m3 — MIT, 568M, 8K ctx, BEIR 55.36, rerank top-50 only. Keep Cohere 5 or Voyage 3 as one paid ceiling arm, not both. Qwen3-Reranker 0.6B is the upgrade path to benchmark.
+Jina v3/v4/v5 — REPLACE, do not ship. CC-BY-NC / Qwen research licence. Single most likely licence trap in the stack.
+BERTopic — KEEP, offline only. MIT, ~7.9k★. Weekly topic-naming, never live detection. Live detection is NN-in-pgvector + 72h window + S-score threshold.
+HDBSCAN standalone — REPLACE with sklearn HDBSCAN. Standalone is unmaintained 2y+. Log % noise (-1) — >40% means embeddings/min_cluster_size are wrong.
+MS GraphRAG — REPLACE. MIT, ~36k★, maintenance mode since Aug 2026, 100–1,000× vector RAG indexing cost. Build LazyGraphRAG-shaped in-house in ~300 lines — NP graph at index, LLM summary at query only.
+Ragas — REPLACE with DeepEval. Ragas dormant since 24 Feb 2026, CVE-2026-6587 unpatched. DeepEval Apache-2.0, ~18.8k★, pytest-native, OSS only, don't pay for cloud yet. Langfuse self-hosted for traces, TruLens secondary.
+LightGBM LambdaRank — try first for LTR. MIT, ~19k★, v4.7.0. Needs ≥~500 labelled pairs. XGBoost as second opinion, pick one winner.
+Frozen rules S(s,c) — KEEP, freeze it. Version + git-tag, baseline everything against it. Build the rank on SnitchFeed's intent tags, not sentiment alone: seeking alternative / competitor complaint / buying intent / pain point / feature request / praise.
+Gold set — BUILD FIRST, highest-leverage change in this layer. Freeze universe (20–50 people, 10–20 companies, 30 days) → 50–100 real questions → hand-label 0/1/2 before any model runs, never from the model's top-10 → pre-register nDCG@10 + promotion threshold + SHA-256 git-tagged, never edited → split by time → score in CI, fail on regression. Do not start reranker or LTR before this exists.
+Point-in-time eval — BUILD, non-negotiable. Every retrieval takes as_of; eval runs PIT vs Future and reports Hindsight Gain. Central claim stays downgraded per IWM §14: narrative→market is “features with measured lead time” until the pre-registered test passes (median lead ≥24h, ≥50% catch).
+
+Agents / jobs / APIs / security / deployment
+
+PydanticAI — KEEP. MIT, ~20.4k★, v2.68.0, 12 Nov 2026. Patch to ≥2.44.0, SSRF/DoS in web_fetch_tool.
+AutoGen — DO NOT START, archived. CrewAI — do not use, non-deterministic crews. LangGraph — Plan B only. Smolagents — prototyping only.
+DBOS Transact — KEEP, with exit hatch. MIT, ~1.6k★, v2.31.0. Only option that's a library on the Postgres you already run, $0, zero new infra. Tiny community, proprietary Conductor UI, v2.0 broke pre-2.0 recovery. Wrap behind one jobs.py interface. Exit hatch is Hatchet — MIT, ~8.2k★, Postgres-only, free UI.
+Temporal — Plan B at scale, not v0.1. Prefect — not durable agents, Dagster acquisition 13 Jul 2026 = roadmap uncertainty. Inngest — DO NOT USE, SSPL. Restate — DO NOT USE, BSL.
+FastMCP — ADD, the missing pointer. Apache-2.0, ~28.4k★, v4.1.8, 10 Nov 2026. OpenAPI→MCP. Don't use stale fastapi-mcp. Order stays web chat → MCP → Slack.
+OpenFGA + Keycloak — DEFER, both. Correct long-term, wrong first services. Ship Scope enum + can_read() + FORCE RLS + JWT behind AuthProvider first. Keycloak is ~512MB–1GB RAM, Java. Authentik is the best later alternative, still defer past v0.1. Zitadel is AGPL since v3, don't use without licence review.
+Fly.io / Railway — DO NOT USE for v0.1. Free tiers retired, managed Postgres from $38/mo kills the $0 budget. Adopt Hetzner CX22 + Coolify — CX22 ~€4.49/mo, Coolify Apache-2.0, ~64–66k★, self-host $0. Kamal is the git-ops alternative.
+Email — SMTP $0 first (SPF+DKIM+DMARC+rDNS day one), Resend Free 3,000/mo as paid upgrade. SendGrid free retired 2025, don't choose.
+Langfuse self-hosted — KEEP. MIT core, ~36.8k★, acquired by ClickHouse Jan 2026, no licence change announced. Opik is the cleanest-licence alternative.
+
+Ingestion / X fetching — the vacant part, we build it
+
+Compliant $0, live: HN Algolia (no key, ~1,000 hits/query, 10k req/hr/IP), Bluesky Jetstream (live tail unauthenticated, public AppView no auth), GitHub API (5,000 req/hr with free PAT), GDELT (keyless, 15-min lag, 3-month window, ~1 req/5s, 429s from shared sandbox), RSS/feedparser, podcasts (iTunes → RSS → local Whisper, $0, best compliant path — check <podcast:transcript> first, 15–20% adoption).
+Reddit cliff: RSS ends 13 Nov 2026, new public API requests stopped 31 Oct 2026, public Data API closes Mar 2027. Survivors: Reddit Pro (first-party, free beta), licensed enterprise, or Devvit (TypeScript only). GummySearch died on this — signups stopped 30 Nov 2025, shutdown 1 Dec 2026.
+YouTube: Data API v3, 10,000 units/day, search.list = 100 units. No compliant transcript route for other creators' videos — metadata only.
+LinkedIn official: own Page/org only, no people search. Other members' profile data = 24h cache only, storing forbidden; social activity = 48h max. A persistent LinkedIn graph cannot legally be built from its own APIs. Job changes via Coresignal Mini $49/mo or PDL Pro $98/mo only.
+X official: pay-per-use, $0.005/post read, $0.010/user read. Bounded: 30 accounts × 5 posts/day × 30d = 4,500 reads = $22.50/mo.
+Top 5 parallel X stack — one canonical record, five ways to fill it
+
+Dedupe is INSERT OR IGNORE on tweet_id, first-writer wins, per-leg health score, circuit-break a leg for a cycle if it scores 0, never retry-storm.
+
+Official X API via tweepy (primary) / xdk-python (secondary) — ground truth, bounded Lists 20–30 accounts. Only leg trusted when grey legs disagree.
+FxTwitter via x-tweet-fetcher router, + self-hosted FxEmbed backup — single-tweet + profile, zero deps, fastest, no credentials. Grey, highest legal overhang after Nitter.
+twscrape v0.21.0 — bulk search + timelines, most actively maintained free collector, 2,958★, last commit 6 Nov 2026. Grey / TOS-breaching, account-pool.
+twifork v2.4.0 — maintained fork of twikit, drop-in replacement, different code path from twscrape. Prefer over upstream twikit (stale Apr 2025). Grey.
+twitterxscraper (Playwright, public profiles only) — last resort, expendable. Grey, fragile.
+
+Nitter is removed from the chain. C&D 24 Aug 2026, archived 25 Aug / 11 Sep 2026, do not self-host. x-tweet-fetcher's auto mode defaults Nitter-first — reconfigure to FxTwitter-first. snscrape dead for X, twint dead/archived 2023.
+
+Top 10 changes, ranked
+Contract first — LinkML → Pydantic v2 → Postgres, every extraction with span offsets + checkpoint + confidence + pipeline_version.
+Gold set + point-in-time discipline before tuning anything.
+Bitemporality as code, not timestamps.
+Canonical adapter + provenance ledger before another collector — makes $22.50/mo spend measurable, lets a dead grey tool swap with one router line.
+GLiNER2.5 to Tier 2, Qwen3-8B locked, LangExtract grounding.
+Replace MinIO with SeaweedFS; freeze typed-edge schema + promotion gates.
+Ship the ranked Monday brief, not a scored feed — top 5 problems / top 3 competitor moves / top 3 unmet needs, each with action + draft + author-fit.
+Defer OpenFGA + Keycloak; ship Scope + can_read() + FORCE RLS + JWT.
+Hetzner CX22 + Coolify; DBOS behind jobs.py, Hatchet as exit hatch.
+Free Reddit+HN tier as acquisition + publish per-source ToS table. Meter only delivered items, never raw matches. Month-to-month, no demo gate, no per-seat tax, no X add-on, same speed every plan.
+Real products — steal this, don't copy that
+
+Steal: Octolens company-context LLM relevance (High/Med/Low) + API/webhooks/MCP on every plan; SnitchFeed intent taxonomy as ranking spine + MCP on entry; Harken one Mention schema → SQLite → local-lexicon sentiment → TF themes, copy literally; OpenMagpie pluggable connectors → BYO-LLM score → webhook, drop rest, plus publish ToS status per source; Brandwatch/Meltwater archive + explained spike — keep everything timestamped from day 1.
+
+Don't copy: per-seat pricing (Sprout), quote-only listening add-on, annual-only $599 (Mention), demo-gated quote-only, metering raw matches (Octolens), speed-gating, borrowed-data moats (BuzzSumo, GummySearch), GEO “training” claims (MentionFox GEOFixer — measure AI visibility, never claim to train LLMs), single-source dependence.
+
+Price gap is real: cheapest credible is $19–$49 alerts-only, then a cliff to Octolens $159, Brand24 $199, BuzzSumo $199, Sprout $199/seat, YouScan $499, Mention $599, Brandwatch ~$800–1,500, Meltwater ~$833–2,083. Nobody under $200 sells a ranked action + brief + draft. Your $57–170 founder band undercuts Octolens Pro at the top and sits above alerts-only — correct, because you sell judgement, not alerts.
+
+Gaps / re-check live before pinning
+
+Star counts conflict on Splink, causal-learn, sentence-transformers, OpenMagpie, Harken, Lead Signal Listener, xdk-python version, F5Bot Silver, Meltwater Enterprise ($130k vs $120k on its own blog), X cap (3M vs 2M). Unverified, don't quote as fact: Tigramite stars, EconML licence, Qwen3 last commit, SemHash counts, pyDecision licence, Splink exact Nov count, MentionFox Enterprise $2,999 (founder post only), Updately's two SKU shapes, all vendor F1s. Prices moved in 2026 — re-check vendor pages on purchase day. Read every model checkpoint's LICENSE, not the family licence.
+
+The files, with the full per-component tables

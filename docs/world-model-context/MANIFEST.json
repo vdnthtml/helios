@@ -1,0 +1,181 @@
+{
+  "project": "world-modelx",
+  "version": "0.1.0",
+  "created_date": "2026-11-14",
+  "source_library_file_id": "libfile_4b30a3f1a68c81919f20c6d0efc34903",
+  "source_total_lines": 10191,
+  "source_bytes": 274538,
+  "git_status": "initialization_denied",
+  "files": [
+    {
+      "path": "AGENTS.md",
+      "bytes": 2811,
+      "sha256": "b73a667fa0a5258fe70b8004b16b908c4c359d0bbf23636d73ff4ead3abb3cf1"
+    },
+    {
+      "path": "README.md",
+      "bytes": 1327,
+      "sha256": "f8cadb92a03e3fb94dfd8434c416cd4824727a0637d4b43c9620b841f8ec1394"
+    },
+    {
+      "path": "context/ARCHITECTURE.md",
+      "bytes": 8105,
+      "sha256": "b3d6e848e14d1b38fa3623552731be51acd23aeacfb9e799e8798a3e4ec9c642"
+    },
+    {
+      "path": "context/CHANGELOG.md",
+      "bytes": 996,
+      "sha256": "93da5008fd59834014ab89d9fec139dc9a189c667165e0c403c033d50ec79ec1"
+    },
+    {
+      "path": "context/CURRENT_DIRECTION.md",
+      "bytes": 3419,
+      "sha256": "2e35cf2f7ec3fc910469e1d1dfb0022f05a505613aecdeec8ffabbcfb82f29e7"
+    },
+    {
+      "path": "context/DECISIONS.md",
+      "bytes": 4548,
+      "sha256": "31660d4f9ab636b0e2b12814adb8e70dee2acaaf11c15e87fe3e0acf8fe77592"
+    },
+    {
+      "path": "context/EVALUATION.md",
+      "bytes": 3818,
+      "sha256": "5938155d37170fbc8d063dff7f9c33e344565f219f91967942c9d686cee969bb"
+    },
+    {
+      "path": "context/EVOLUTION.md",
+      "bytes": 3138,
+      "sha256": "4fe6fc378765631e0d06b1c6813c84fdef8d9ddc0a9bf464ce3079d38c4af6ad"
+    },
+    {
+      "path": "context/OPEN_QUESTIONS.md",
+      "bytes": 2729,
+      "sha256": "5dc8fdda4a1a913ed606cd4ee2a0e62ff6a8acedb07c0e949afb9d6c68a293ca"
+    },
+    {
+      "path": "context/PRODUCT_AND_ECONOMICS.md",
+      "bytes": 3204,
+      "sha256": "9092763acea3ac4dfaee18e05df3facd700669920acb10f084cb238e2814fc26"
+    },
+    {
+      "path": "context/PROVENANCE.md",
+      "bytes": 2863,
+      "sha256": "28e85ccbbe0d550e775ec8e543448444600d99d628767b3e1e4aa1ec17efaa8f"
+    },
+    {
+      "path": "context/REQUIREMENTS.csv",
+      "bytes": 17054,
+      "sha256": "0a9719f5b7ac287d6225532cd286c2a8afea98887255ec707046fea42e6a4666"
+    },
+    {
+      "path": "context/REQUIREMENTS.md",
+      "bytes": 2262,
+      "sha256": "e48c7ef01644cb410236c9cf8a3c7d2f0c71cb44a5947a1c256b85f545c831c6"
+    },
+    {
+      "path": "context/ROADMAP.md",
+      "bytes": 1810,
+      "sha256": "5f66bf66f2a5f25ac93f7bd9902d645abf3351baebcb73fdcdefcf4ff0ca17e4"
+    },
+    {
+      "path": "context/SECURITY.md",
+      "bytes": 2169,
+      "sha256": "addd56b04697fc17aed103a900276cbb17c6d19e5fe7bc8a9387e677cb372457"
+    },
+    {
+      "path": "context/START_HERE.md",
+      "bytes": 2137,
+      "sha256": "7e64203b628c172e621af75479b6a96fefc1e7e665a10b7bd7c4971b3995944d"
+    },
+    {
+      "path": "context/STATE.md",
+      "bytes": 2531,
+      "sha256": "31dc4413b04badd141553f07832977fd1d4f622e3706485e349825df37c48b67"
+    },
+    {
+      "path": "context/handoffs/COFOUNDER.md",
+      "bytes": 2313,
+      "sha256": "b52b421c87387560e3f55f8d685d0500717d8a093ae83d8d6d02cadaea1ea8ad"
+    },
+    {
+      "path": "context/handoffs/IMPLEMENTATION.md",
+      "bytes": 2239,
+      "sha256": "f7bfac5962fb3342d83db602bad7e260beb9e79b6ee9320a056aafafa6bb72f1"
+    },
+    {
+      "path": "context/handoffs/NEXT_AGENT.md",
+      "bytes": 1977,
+      "sha256": "bb7f1e5667901d7007485a22a7ba2500644b4768b82af501aafcba5f83099ca3"
+    },
+    {
+      "path": "context/handoffs/RESEARCH.md",
+      "bytes": 3093,
+      "sha256": "0c7da52dbee80950635488e5d3e9daed34d0181c4d258b1741726e6245e51837"
+    },
+    {
+      "path": "context/logs/EXPERIMENTS.jsonl",
+      "bytes": 241,
+      "sha256": "e42454f23ff956ff86202600db7c4d4e7b92f63483ceb18f2af0e1c74884df4a"
+    },
+    {
+      "path": "context/logs/RESEARCH.jsonl",
+      "bytes": 252,
+      "sha256": "ed4ad316bba7990471ec0e3a55b3ec9babe30884af1cfaa1b06628e18e6e5038"
+    },
+    {
+      "path": "context/logs/SESSIONS.jsonl",
+      "bytes": 403,
+      "sha256": "a217648613529e257bbb0acc5d4aa4918e58fd3eca69d4899a5060f5f35e4eda"
+    },
+    {
+      "path": "context/reference/ARCHITECTURE_REQUIREMENTS.md",
+      "bytes": 55476,
+      "sha256": "d11e66c9721b328c1e1d19471be978b6df37e01b0789677944789993591f910d"
+    },
+    {
+      "path": "context/reference/FOUNDER_HANDOFF.md",
+      "bytes": 62314,
+      "sha256": "8348abb8bccd7f8c32ae77027218fe9b038a40f9523b1d918bb39d26ec450523"
+    },
+    {
+      "path": "context/reference/MASTER_DEFINITION.md",
+      "bytes": 48960,
+      "sha256": "000c067c1b8f4dd4edc8e2e89bb1c8bc85395b221fccc08e3c184887a91a28ea"
+    },
+    {
+      "path": "context/reference/RESEARCH_MISSION.md",
+      "bytes": 41631,
+      "sha256": "21c3169e664c8d7eaa753f2678f0c25ddcbe86eef35b56e36f46e7bd5f8c3948"
+    },
+    {
+      "path": "context/reference/TECHNICAL_REVIEW.md",
+      "bytes": 58222,
+      "sha256": "aaa095bebcb94702156b2dc7ae0256f5f3b2bf0201d2b28b759c847eef3fd6e5"
+    },
+    {
+      "path": "context/sources/conversation-2026-11-14.txt",
+      "bytes": 274538,
+      "sha256": "adcf64265e0fe9c4cfba48496693b1f04840e15c0bacb46b7ee04264052c82c3"
+    },
+    {
+      "path": "context/templates/EXPERIMENT_RECORD.json",
+      "bytes": 444,
+      "sha256": "b84689db687919147827732ed5ed0ffba5c1e141e924dc56282cf04d57820bc8"
+    },
+    {
+      "path": "context/templates/RESEARCH_RECORD.json",
+      "bytes": 477,
+      "sha256": "e4b9f50047ca71e3c2c3510962aa303ad8d8c6b9b52f88eb1b0ef3517206ec72"
+    },
+    {
+      "path": "context/templates/SESSION.md",
+      "bytes": 689,
+      "sha256": "4faff4eccf4e0fa32863d185c9fa4e93f4c9982a7377f489374105c534f84a59"
+    }
+  ],
+  "excluded": [
+    "context/MANIFEST.json",
+    "releases/",
+    ".git/"
+  ]
+}

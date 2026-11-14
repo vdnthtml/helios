@@ -1,0 +1,19 @@
+{
+  "id": "REPLACE",
+  "recorded_at": "REPLACE",
+  "requirement_ids": [],
+  "claim": "REPLACE",
+  "evidence_class": "docs_inspected|code_inspected|paper|vendor_claim|inference|unknown",
+  "sources": [
+    {
+      "url": "REPLACE",
+      "checked_at": "REPLACE",
+      "locator": "REPLACE"
+    }
+  ],
+  "finding": "REPLACE",
+  "limitations": [],
+  "recommendation": "Reuse|Integrate|Extend|Build|Research|Defer|Reject",
+  "decision_status": "proposed",
+  "affected_files": []
+}

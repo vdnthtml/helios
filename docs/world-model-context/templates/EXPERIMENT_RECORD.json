@@ -1,0 +1,18 @@
+{
+  "id": "REPLACE",
+  "hypothesis": "REPLACE",
+  "requirement_ids": [],
+  "dataset_version": "REPLACE",
+  "cutoff_semantics": "public_availability|actual_ingestion",
+  "cutoff": "REPLACE",
+  "model_prompt_code_versions": {},
+  "baseline": [],
+  "metrics": [],
+  "acceptance_thresholds": {},
+  "budget": {},
+  "forecast_committed_before_reveal": null,
+  "leakage_checks": [],
+  "results": null,
+  "limitations": [],
+  "decision_impact": null
+}

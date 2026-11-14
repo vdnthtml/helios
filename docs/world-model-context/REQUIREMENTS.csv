@@ -1,0 +1,176 @@
+requirement_id,section,description,source_line,implementation_status
+ID-01,6. ENTITY RESOLUTION,Canonical identifiers,8087,specified_not_implemented
+ID-02,6. ENTITY RESOLUTION,Source mappings,8091,specified_not_implemented
+ID-03,6. ENTITY RESOLUTION,Candidate matching,8095,specified_not_implemented
+ID-04,6. ENTITY RESOLUTION,Uncertain matches,8099,specified_not_implemented
+ID-05,6. ENTITY RESOLUTION,Confidence and contradiction,8103,specified_not_implemented
+ID-06,6. ENTITY RESOLUTION,Reversible merges,8107,specified_not_implemented
+ID-07,6. ENTITY RESOLUTION,Cross-domain resolution,8111,specified_not_implemented
+ID-08,6. ENTITY RESOLUTION,Private identity separation,8115,specified_not_implemented
+ID-09,6. ENTITY RESOLUTION,Automated regression tests,8119,specified_not_implemented
+EV-01,8. PROVENANCE AND EVIDENCE,Source traceability,8228,specified_not_implemented
+EV-02,8. PROVENANCE AND EVIDENCE,Extraction traceability,8232,specified_not_implemented
+EV-03,8. PROVENANCE AND EVIDENCE,Model and prompt versioning,8236,specified_not_implemented
+EV-04,8. PROVENANCE AND EVIDENCE,Independent-source distinction,8240,specified_not_implemented
+EV-05,8. PROVENANCE AND EVIDENCE,Contradictory evidence,8244,specified_not_implemented
+EV-06,8. PROVENANCE AND EVIDENCE,Retractions,8248,specified_not_implemented
+EV-07,8. PROVENANCE AND EVIDENCE,Distinct epistemic states,8252,specified_not_implemented
+EV-08,8. PROVENANCE AND EVIDENCE,Prominence separation,8256,specified_not_implemented
+EV-09,8. PROVENANCE AND EVIDENCE,Derived dependency tracking,8260,specified_not_implemented
+EV-10,8. PROVENANCE AND EVIDENCE,Reproducibility,8264,specified_not_implemented
+TM-01,9. TEMPORAL ARCHITECTURE,Historical queries,8291,specified_not_implemented
+TM-02,9. TEMPORAL ARCHITECTURE,Knowledge-time filtering,8295,specified_not_implemented
+TM-03,9. TEMPORAL ARCHITECTURE,Public-availability distinction,8299,specified_not_implemented
+TM-04,9. TEMPORAL ARCHITECTURE,Append-only historical records,8303,specified_not_implemented
+TM-05,9. TEMPORAL ARCHITECTURE,Temporal graph traversal,8307,specified_not_implemented
+TM-06,9. TEMPORAL ARCHITECTURE,Source publication delays,8311,specified_not_implemented
+TM-07,9. TEMPORAL ARCHITECTURE,Historical corrections,8315,specified_not_implemented
+TM-08,9. TEMPORAL ARCHITECTURE,Historical index isolation,8319,specified_not_implemented
+MM-01,10. SEGMENTED WORLD MEMORY,Logical segmentation,8359,specified_not_implemented
+MM-02,10. SEGMENTED WORLD MEMORY,Cross-domain connectivity,8363,specified_not_implemented
+MM-03,10. SEGMENTED WORLD MEMORY,Dynamic context construction,8367,specified_not_implemented
+MM-04,10. SEGMENTED WORLD MEMORY,Context compression,8371,specified_not_implemented
+MM-05,10. SEGMENTED WORLD MEMORY,Rebuildability,8375,specified_not_implemented
+MM-06,10. SEGMENTED WORLD MEMORY,Incremental invalidation,8379,specified_not_implemented
+MM-07,10. SEGMENTED WORLD MEMORY,Domain-specific retention,8383,specified_not_implemented
+MM-08,10. SEGMENTED WORLD MEMORY,Budget-aware retrieval,8387,specified_not_implemented
+MM-09,10. SEGMENTED WORLD MEMORY,Cross-domain recall evaluation,8391,specified_not_implemented
+MM-10,10. SEGMENTED WORLD MEMORY,Storage independence,8395,specified_not_implemented
+RT-01,12. INFORMATION RETRIEVAL,Query classification,8482,specified_not_implemented
+RT-02,12. INFORMATION RETRIEVAL,Multi-index planning,8486,specified_not_implemented
+RT-03,12. INFORMATION RETRIEVAL,Cross-domain expansion,8490,specified_not_implemented
+RT-04,12. INFORMATION RETRIEVAL,Evidence sufficiency,8494,specified_not_implemented
+RT-05,12. INFORMATION RETRIEVAL,Retrieval budgets,8498,specified_not_implemented
+RT-06,12. INFORMATION RETRIEVAL,Explicit query trace,8502,specified_not_implemented
+RT-07,12. INFORMATION RETRIEVAL,Reproducibility,8506,specified_not_implemented
+RT-08,12. INFORMATION RETRIEVAL,Evaluation,8510,specified_not_implemented
+IN-01,13. INFERENCE ENGINE,Query understanding,8521,specified_not_implemented
+IN-02,13. INFERENCE ENGINE,Investigation planning,8538,specified_not_implemented
+IN-03,13. INFERENCE ENGINE,Relationship discovery,8541,specified_not_implemented
+IN-04,13. INFERENCE ENGINE,Hypothesis generation,8544,specified_not_implemented
+IN-05,13. INFERENCE ENGINE,Hypothesis evaluation,8547,specified_not_implemented
+IN-06,13. INFERENCE ENGINE,Alternative explanations,8550,specified_not_implemented
+IN-07,13. INFERENCE ENGINE,Missing-information detection,8553,specified_not_implemented
+IN-08,13. INFERENCE ENGINE,Investigation expansion,8556,specified_not_implemented
+IN-09,13. INFERENCE ENGINE,Uncertainty representation,8559,specified_not_implemented
+IN-10,13. INFERENCE ENGINE,Evidence-grounded response,8562,specified_not_implemented
+IN-11,13. INFERENCE ENGINE,Explanation revision,8565,specified_not_implemented
+IN-12,13. INFERENCE ENGINE,Computational efficiency,8568,specified_not_implemented
+AT-01,14. ATTRIBUTION ARCHITECTURE,Multiple explanations,8589,specified_not_implemented
+AT-02,14. ATTRIBUTION ARCHITECTURE,Explicit source pathways,8593,specified_not_implemented
+AT-03,14. ATTRIBUTION ARCHITECTURE,Temporal consistency,8597,specified_not_implemented
+AT-04,14. ATTRIBUTION ARCHITECTURE,Common-source consideration,8601,specified_not_implemented
+AT-05,14. ATTRIBUTION ARCHITECTURE,Independent emergence,8605,specified_not_implemented
+AT-06,14. ATTRIBUTION ARCHITECTURE,Missing-observation awareness,8609,specified_not_implemented
+AT-07,14. ATTRIBUTION ARCHITECTURE,Direct verification,8613,specified_not_implemented
+AT-08,14. ATTRIBUTION ARCHITECTURE,Accuracy evaluation,8617,specified_not_implemented
+AT-09,14. ATTRIBUTION ARCHITECTURE,Calibrated confidence,8621,specified_not_implemented
+AT-10,14. ATTRIBUTION ARCHITECTURE,Explicit limits,8625,specified_not_implemented
+HU-01,15. HUMAN AND PROFESSIONAL INFORMATION MODEL,Context-specific representation,8663,specified_not_implemented
+HU-02,15. HUMAN AND PROFESSIONAL INFORMATION MODEL,Decision history,8667,specified_not_implemented
+HU-03,15. HUMAN AND PROFESSIONAL INFORMATION MODEL,Evolving patterns,8671,specified_not_implemented
+HU-04,15. HUMAN AND PROFESSIONAL INFORMATION MODEL,Historical changes,8675,specified_not_implemented
+HU-05,15. HUMAN AND PROFESSIONAL INFORMATION MODEL,Cross-domain participation,8679,specified_not_implemented
+HU-06,15. HUMAN AND PROFESSIONAL INFORMATION MODEL,Provenance,8683,specified_not_implemented
+HU-07,15. HUMAN AND PROFESSIONAL INFORMATION MODEL,Identity uncertainty,8687,specified_not_implemented
+HU-08,15. HUMAN AND PROFESSIONAL INFORMATION MODEL,Private context separation,8691,specified_not_implemented
+HU-09,15. HUMAN AND PROFESSIONAL INFORMATION MODEL,Sensitive inference boundary,8695,specified_not_implemented
+EF-01,16. EXPERT FRAMEWORK ENGINE,Framework storage,8723,specified_not_implemented
+EF-02,16. EXPERT FRAMEWORK ENGINE,Applicability,8727,specified_not_implemented
+EF-03,16. EXPERT FRAMEWORK ENGINE,Required inputs,8731,specified_not_implemented
+EF-04,16. EXPERT FRAMEWORK ENGINE,Assumptions,8735,specified_not_implemented
+EF-05,16. EXPERT FRAMEWORK ENGINE,Analytical procedures,8739,specified_not_implemented
+EF-06,16. EXPERT FRAMEWORK ENGINE,Limitations,8743,specified_not_implemented
+EF-07,16. EXPERT FRAMEWORK ENGINE,Framework selection,8747,specified_not_implemented
+EF-08,16. EXPERT FRAMEWORK ENGINE,Framework composition,8751,specified_not_implemented
+EF-09,16. EXPERT FRAMEWORK ENGINE,Evaluation,8755,specified_not_implemented
+EF-10,16. EXPERT FRAMEWORK ENGINE,Expert provenance,8759,specified_not_implemented
+EC-01,17. ECONOMIC AND MONEY-FLOW INTELLIGENCE,Financial event representation,8822,specified_not_implemented
+EC-02,17. ECONOMIC AND MONEY-FLOW INTELLIGENCE,Relationship paths,8826,specified_not_implemented
+EC-03,17. ECONOMIC AND MONEY-FLOW INTELLIGENCE,Historical financial context,8830,specified_not_implemented
+EC-04,17. ECONOMIC AND MONEY-FLOW INTELLIGENCE,Economic dependency analysis,8834,specified_not_implemented
+EC-05,17. ECONOMIC AND MONEY-FLOW INTELLIGENCE,Cross-domain linkage,8838,specified_not_implemented
+EC-06,17. ECONOMIC AND MONEY-FLOW INTELLIGENCE,Source-backed conclusions,8842,specified_not_implemented
+EC-07,17. ECONOMIC AND MONEY-FLOW INTELLIGENCE,Real-world outcome evaluation,8846,specified_not_implemented
+NV-01,18. NARRATIVE AND INFORMATION-FLOW INTELLIGENCE,Claim identification,8857,specified_not_implemented
+NV-02,18. NARRATIVE AND INFORMATION-FLOW INTELLIGENCE,Semantic grouping,8861,specified_not_implemented
+NV-03,18. NARRATIVE AND INFORMATION-FLOW INTELLIGENCE,Source tracing,8865,specified_not_implemented
+NV-04,18. NARRATIVE AND INFORMATION-FLOW INTELLIGENCE,Temporal propagation,8869,specified_not_implemented
+NV-05,18. NARRATIVE AND INFORMATION-FLOW INTELLIGENCE,Community and domain movement,8873,specified_not_implemented
+NV-06,18. NARRATIVE AND INFORMATION-FLOW INTELLIGENCE,Novelty detection,8877,specified_not_implemented
+NV-07,18. NARRATIVE AND INFORMATION-FLOW INTELLIGENCE,Prominence measurement,8881,specified_not_implemented
+NV-08,18. NARRATIVE AND INFORMATION-FLOW INTELLIGENCE,Contradiction and reinterpretation,8885,specified_not_implemented
+NV-09,18. NARRATIVE AND INFORMATION-FLOW INTELLIGENCE,Historical narrative reconstruction,8889,specified_not_implemented
+NV-10,18. NARRATIVE AND INFORMATION-FLOW INTELLIGENCE,Cross-domain consequences,8893,specified_not_implemented
+FC-01,19. FORECASTING AND HISTORICAL LEARNING,Historical replay,8932,specified_not_implemented
+FC-02,19. FORECASTING AND HISTORICAL LEARNING,Prediction commitment,8936,specified_not_implemented
+FC-03,19. FORECASTING AND HISTORICAL LEARNING,Outcome resolution,8940,specified_not_implemented
+FC-04,19. FORECASTING AND HISTORICAL LEARNING,Proper evaluation,8944,specified_not_implemented
+FC-05,19. FORECASTING AND HISTORICAL LEARNING,Baseline comparison,8948,specified_not_implemented
+FC-06,19. FORECASTING AND HISTORICAL LEARNING,Calibration,8952,specified_not_implemented
+FC-07,19. FORECASTING AND HISTORICAL LEARNING,Error inspection,8956,specified_not_implemented
+FC-08,19. FORECASTING AND HISTORICAL LEARNING,Learning feedback,8960,specified_not_implemented
+FC-09,19. FORECASTING AND HISTORICAL LEARNING,No future leakage,8964,specified_not_implemented
+FC-10,19. FORECASTING AND HISTORICAL LEARNING,Reproducibility,8968,specified_not_implemented
+AM-01,21. AUTONOMOUS MONITORING AND INVESTIGATION,Question answering,9049,specified_not_implemented
+AM-02,21. AUTONOMOUS MONITORING AND INVESTIGATION,Scheduled research,9053,specified_not_implemented
+AM-03,21. AUTONOMOUS MONITORING AND INVESTIGATION,Continuous monitoring,9057,specified_not_implemented
+AM-04,21. AUTONOMOUS MONITORING AND INVESTIGATION,Autonomous investigation,9061,specified_not_implemented
+AM-05,21. AUTONOMOUS MONITORING AND INVESTIGATION,Repetition-based escalation,9065,specified_not_implemented
+AM-06,21. AUTONOMOUS MONITORING AND INVESTIGATION,Investigation stopping conditions,9069,specified_not_implemented
+AM-07,21. AUTONOMOUS MONITORING AND INVESTIGATION,Researcher escalation,9073,specified_not_implemented
+AM-08,21. AUTONOMOUS MONITORING AND INVESTIGATION,Alert traceability,9077,specified_not_implemented
+SEC-01,22. PRIVATE INFORMATION AND ENTERPRISE SECURITY,Tenant isolation,9098,specified_not_implemented
+SEC-02,22. PRIVATE INFORMATION AND ENTERPRISE SECURITY,Authorization before retrieval,9102,specified_not_implemented
+SEC-03,22. PRIVATE INFORMATION AND ENTERPRISE SECURITY,Derived-information restrictions,9106,specified_not_implemented
+SEC-04,22. PRIVATE INFORMATION AND ENTERPRISE SECURITY,Encryption,9110,specified_not_implemented
+SEC-05,22. PRIVATE INFORMATION AND ENTERPRISE SECURITY,Scoped connectors,9114,specified_not_implemented
+SEC-06,22. PRIVATE INFORMATION AND ENTERPRISE SECURITY,Audit logging,9118,specified_not_implemented
+SEC-07,22. PRIVATE INFORMATION AND ENTERPRISE SECURITY,Data correction and deletion,9122,specified_not_implemented
+SEC-08,22. PRIVATE INFORMATION AND ENTERPRISE SECURITY,Source license tracking,9126,specified_not_implemented
+SEC-09,22. PRIVATE INFORMATION AND ENTERPRISE SECURITY,Model-provider boundaries,9130,specified_not_implemented
+SEC-10,22. PRIVATE INFORMATION AND ENTERPRISE SECURITY,Prompt-injection resistance,9134,specified_not_implemented
+SEC-11,22. PRIVATE INFORMATION AND ENTERPRISE SECURITY,Enterprise deployment options,9138,specified_not_implemented
+SEC-12,22. PRIVATE INFORMATION AND ENTERPRISE SECURITY,Information contribution controls,9142,specified_not_implemented
+FW-01,23. FOUNDER AND RESEARCH KNOWLEDGE WORKSPACE,Structured research entries,9191,specified_not_implemented
+FW-02,23. FOUNDER AND RESEARCH KNOWLEDGE WORKSPACE,Decision history,9195,specified_not_implemented
+FW-03,23. FOUNDER AND RESEARCH KNOWLEDGE WORKSPACE,Meeting ingestion,9199,specified_not_implemented
+FW-04,23. FOUNDER AND RESEARCH KNOWLEDGE WORKSPACE,Objection tracking,9203,specified_not_implemented
+FW-05,23. FOUNDER AND RESEARCH KNOWLEDGE WORKSPACE,Research retrieval,9207,specified_not_implemented
+FW-06,23. FOUNDER AND RESEARCH KNOWLEDGE WORKSPACE,Agent portability,9211,specified_not_implemented
+FW-07,23. FOUNDER AND RESEARCH KNOWLEDGE WORKSPACE,Version control,9215,specified_not_implemented
+FW-08,23. FOUNDER AND RESEARCH KNOWLEDGE WORKSPACE,Confidentiality,9219,specified_not_implemented
+UX-01,24. PRODUCT EXPERIENCE,Messaging-first,9263,specified_not_implemented
+UX-02,24. PRODUCT EXPERIENCE,Investigation history,9267,specified_not_implemented
+UX-03,24. PRODUCT EXPERIENCE,Source inspection,9271,specified_not_implemented
+UX-04,24. PRODUCT EXPERIENCE,Follow-up research,9275,specified_not_implemented
+UX-05,24. PRODUCT EXPERIENCE,Monitoring,9279,specified_not_implemented
+UX-06,24. PRODUCT EXPERIENCE,Asynchronous jobs,9283,specified_not_implemented
+UX-07,24. PRODUCT EXPERIENCE,Cross-channel interfaces,9287,specified_not_implemented
+UX-08,24. PRODUCT EXPERIENCE,Feedback capture,9291,specified_not_implemented
+UX-09,24. PRODUCT EXPERIENCE,Appropriate approval,9295,specified_not_implemented
+DEP-01,29. REFERENCE DEPLOYMENT ARCHITECTURE,Local-first,9532,specified_not_implemented
+DEP-02,29. REFERENCE DEPLOYMENT ARCHITECTURE,Modular boundaries,9536,specified_not_implemented
+DEP-03,29. REFERENCE DEPLOYMENT ARCHITECTURE,Reproducible setup,9540,specified_not_implemented
+DEP-04,29. REFERENCE DEPLOYMENT ARCHITECTURE,Environment separation,9544,specified_not_implemented
+DEP-05,29. REFERENCE DEPLOYMENT ARCHITECTURE,Replaceable model providers,9548,specified_not_implemented
+DEP-06,29. REFERENCE DEPLOYMENT ARCHITECTURE,Rebuildable indexes,9552,specified_not_implemented
+DEP-07,29. REFERENCE DEPLOYMENT ARCHITECTURE,Durable jobs,9556,specified_not_implemented
+DEP-08,29. REFERENCE DEPLOYMENT ARCHITECTURE,Observability,9560,specified_not_implemented
+DEP-09,29. REFERENCE DEPLOYMENT ARCHITECTURE,Security,9564,specified_not_implemented
+DEP-10,29. REFERENCE DEPLOYMENT ARCHITECTURE,Migration path,9568,specified_not_implemented
+D-01,31. FIRST DEMONSTRATION — REQUIRED CAPABILITY SET,Ingest real historical information.,9715,specified_not_implemented
+D-02,31. FIRST DEMONSTRATION — REQUIRED CAPABILITY SET,Extract entities and events.,9719,specified_not_implemented
+D-03,31. FIRST DEMONSTRATION — REQUIRED CAPABILITY SET,Resolve overlapping identities.,9723,specified_not_implemented
+D-04,31. FIRST DEMONSTRATION — REQUIRED CAPABILITY SET,Build typed relationships.,9727,specified_not_implemented
+D-05,31. FIRST DEMONSTRATION — REQUIRED CAPABILITY SET,Segment information into different contexts.,9731,specified_not_implemented
+D-06,31. FIRST DEMONSTRATION — REQUIRED CAPABILITY SET,Retrieve and connect information across those contexts.,9735,specified_not_implemented
+D-07,31. FIRST DEMONSTRATION — REQUIRED CAPABILITY SET,Generate alternative hypotheses.,9739,specified_not_implemented
+D-08,31. FIRST DEMONSTRATION — REQUIRED CAPABILITY SET,Explain which relationships are documented and which are inferred.,9743,specified_not_implemented
+D-09,31. FIRST DEMONSTRATION — REQUIRED CAPABILITY SET,Reconstruct a past information state.,9747,specified_not_implemented
+D-10,31. FIRST DEMONSTRATION — REQUIRED CAPABILITY SET,Generate a testable historical prediction.,9751,specified_not_implemented
+D-11,31. FIRST DEMONSTRATION — REQUIRED CAPABILITY SET,Reveal and score the subsequent outcome.,9755,specified_not_implemented
+D-12,31. FIRST DEMONSTRATION — REQUIRED CAPABILITY SET,Display the resulting errors and learning feedback.,9759,specified_not_implemented
+D-13,31. FIRST DEMONSTRATION — REQUIRED CAPABILITY SET,Record compute and retrieval costs.,9763,specified_not_implemented
+D-14,31. FIRST DEMONSTRATION — REQUIRED CAPABILITY SET,Make the investigation accessible through a messaging interface.,9767,specified_not_implemented
+D-15,31. FIRST DEMONSTRATION — REQUIRED CAPABILITY SET,Provide an inspectable evidence and processing trace.,9771,specified_not_implemented
